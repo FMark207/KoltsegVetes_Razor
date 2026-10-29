@@ -1,0 +1,31 @@
+﻿@page
+@model KoltsegVetes_Razor.Pages.KategoriaPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Kategoria</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kategoria.Nev)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kategoria.Nev)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kategoria.Tipus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kategoria.Tipus)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Kategoria.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

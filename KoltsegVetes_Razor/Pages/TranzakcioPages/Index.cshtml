@@ -1,0 +1,70 @@
+﻿@page
+@model KoltsegVetes_Razor.Pages.TranzakcioPages.IndexModel
+
+@{
+    ViewData["Title"] = "Tranzakciok";
+}
+
+<h1>Tranzakciók</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Uj tranzakcio</a>
+</p>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="month" asp-for="Honap" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <select asp-for="KategoriaId" asp-items="Model.KategoriaLista" class="form-select">
+            <option value="">-- Minden kategoria --</option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Szűrés</button>
+        <a asp-page="./Index" class="btn btn-secondary">Szures torlese</a>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Kategória</th>
+            <th>Összeg</th>
+            <th>Megjegyzes</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tranzakcio)
+        {
+            <tr>
+                <td>@item.Datum.ToString("yyyy.MM.dd.")</td>
+                <td>@item.Kategoria?.Nev</td>
+                <td>@item.Osszeg.ToString("N0") Ft</td>
+                <td>@item.Megjegyzes</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Szerkesztes</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Reszletek</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Törlés</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.OsszesOldal > 1)
+{
+    <div>
+        @if (Model.Oldal > 1)
+        {
+            <a asp-page="./Index" asp-route-Oldal="@(Model.Oldal - 1)" asp-route-Honap="@Model.Honap" asp-route-KategoriaId="@Model.KategoriaId">« Elozo</a>
+        }
+        <span> @Model.Oldal. / @Model.OsszesOldal oldal </span>
+        @if (Model.Oldal < Model.OsszesOldal)
+        {
+            <a asp-page="./Index" asp-route-Oldal="@(Model.Oldal + 1)" asp-route-Honap="@Model.Honap" asp-route-KategoriaId="@Model.KategoriaId">Kovetkezo »</a>
+        }
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoltsegVetes_Razor", "KoltsegVetes_Razor\KoltsegVetes_Razor.csproj", "{0D1FCEA4-45B4-4140-85C9-95E1F47DB77F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D1FCEA4-45B4-4140-85C9-95E1F47DB77F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1FCEA4-45B4-4140-85C9-95E1F47DB77F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1FCEA4-45B4-4140-85C9-95E1F47DB77F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1FCEA4-45B4-4140-85C9-95E1F47DB77F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B93EAE87-9C92-4ADF-A99C-5B35AAD08E04}
+	EndGlobalSection
+EndGlobal

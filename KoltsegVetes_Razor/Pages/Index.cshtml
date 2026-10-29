@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@using KoltsegVetes_Razor.Models
+@{
+    ViewData["Title"] = "Kezdolap";
+}
+
+<h1>@Model.HonapNeve</h1>
+
+<table class="table w-auto">
+    <tr>
+        <th>Bevétel</th>
+        <td class="text-success">@Model.Bevetel.ToString("N0") Ft</td>
+    </tr>
+    <tr>
+        <th>Kiadas</th>
+        <td class="text-danger">@Model.Kiadas.ToString("N0") Ft</td>
+    </tr>
+    <tr>
+        <th>Egyenleg</th>
+        <td><strong>@Model.Egyenleg.ToString("N0") Ft</strong></td>
+    </tr>
+</table>
+
+<h2>Havi osszesito kategoriankent</h2>
+
+@if (Model.Osszesito.Count == 0)
+{
+    <p>Ebben a honapban meg nincs tranzakcio.</p>
+}
+else
+{
+    <table class="table w-auto">
+        <thead>
+            <tr>
+                <th>Kategória</th>
+                <th>Tipus</th>
+                <th>Összeg</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sor in Model.Osszesito)
+            {
+                <tr>
+                    <td>@sor.Nev</td>
+                    <td>@(sor.Tipus == KategoriaTipus.Bevetel ? "Bevétel" : "Kiadas")</td>
+                    <td>@sor.Osszeg.ToString("N0") Ft</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
